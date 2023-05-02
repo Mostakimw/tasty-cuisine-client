@@ -6,6 +6,7 @@ import Info from "../pages/Info/Info";
 import Special from "../pages/Special/Special";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 // import Error from "../pages/Error/Error";
 
 const router = createBrowserRouter([
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "chefs/:id",
+        element: <ChefDetails></ChefDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://taste-cuisine-server-mostakimw.vercel.app/chefs/${params.id}`
+          ),
       },
     ],
   },

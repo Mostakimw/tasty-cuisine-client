@@ -1,6 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.my-font {
+  font-family: "Josefin Sans", cursive;
+}
 
 .active {
   @apply font-medium tracking-wide text-blue-600 underline;

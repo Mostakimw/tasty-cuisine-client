@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
   console.log(chef);
-  const { chef_name, chef_picture, likes, num_of_recipes, years_of_exp } = chef;
+  const { _id, chef_name, chef_picture, likes, num_of_recipes, years_of_exp } =
+    chef;
   return (
     <>
       <div className="border-2 rounded-md col-span-4">
@@ -20,9 +22,11 @@ const SingleChef = ({ chef }) => {
               Number of Recipes: {num_of_recipes}
             </p>
             <p className="mtext-secondary my-2">Total Likes: {likes}</p>
-            <button className="border-2 border-[#1c5c7c] py-3 px-7 rounded-md font-bold mt-3">
-              View Recipe
-            </button>
+            <Link to={`/chefs/${_id}`}>
+              <button className="border-2 border-[#1c5c7c] py-3 px-7 rounded-md font-bold mt-3">
+                View Recipe
+              </button>
+            </Link>
           </div>
         </div>
       </div>
