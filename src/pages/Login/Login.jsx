@@ -8,14 +8,15 @@ const Login = () => {
         <div className="text-center">
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
-        <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
+        <div className="card w-full lg:w-[800px] max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <div className="form-control">
+            <div className="form-control pt-5">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
               />
@@ -25,7 +26,8 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
               />
