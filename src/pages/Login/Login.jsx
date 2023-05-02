@@ -64,7 +64,7 @@ const Login = () => {
 
             <label className="label">
               <p href="#" className="label-text-alt">
-                New to <span className="text-[#c84c30]">Tasty Quisine</span>?
+                New to <span className="text-[#c84c30]">Tasty Cuisine</span>?
                 Please{" "}
                 <Link to="/register" className="text-[#1c5c7c] hover:underline">
                   Register

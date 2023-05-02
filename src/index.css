@@ -5,3 +5,10 @@
 .active {
   @apply font-medium tracking-wide text-blue-600 underline;
 }
+
+.mtext-primary {
+  @apply text-4xl font-bold;
+}
+.mtext-secondary {
+  @apply text-[#757575] text-sm;
+}
