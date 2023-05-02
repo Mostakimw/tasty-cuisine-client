@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(UserContext);
+  const [user, setUser] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+
+  const loginHandle = () => {
+    loginUser(email, password)
+      .then((user) => {
+        console.log(user.user);
+      })
+      .catch((err) => {
+        setError("Email Or Password doesn't match");
+      });
+  };
+
   return (
     <div className="hero bg-base-100">
       <div className="hero-content flex-col">
@@ -11,10 +29,12 @@ const Login = () => {
         <div className="card w-full lg:w-[800px] max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control pt-5">
+              <p className="text-error mb-2">{user || error}</p>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
                 placeholder="email"
@@ -26,6 +46,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 name="password"
                 placeholder="password"
@@ -33,14 +54,18 @@ const Login = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#c84c30] hover:bg-[#cd320f] border-none">
+              <button
+                onClick={loginHandle}
+                className="btn bg-[#c84c30] hover:bg-[#cd320f] border-none"
+              >
                 Login
               </button>
             </div>
 
             <label className="label">
               <p href="#" className="label-text-alt">
-                New to Tasty Quisine? Please{" "}
+                New to <span className="text-[#c84c30]">Tasty Quisine</span>?
+                Please{" "}
                 <Link to="/register" className="text-[#1c5c7c] hover:underline">
                   Register
                 </Link>

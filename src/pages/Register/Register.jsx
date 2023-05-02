@@ -106,7 +106,8 @@ const Register = () => {
 
               <label className="label">
                 <p href="#" className="label-text-alt">
-                  Already have an account? Please{" "}
+                  Already Member of{" "}
+                  <span className="text-[#c84c30]">Tasty Quisine</span>? Please{" "}
                   <Link to="/login" className="text-[#1c5c7c] hover:underline">
                     Login
                   </Link>
