@@ -16,13 +16,12 @@ const Special = () => {
         <div className="hero-overlay bg-opacity-60 rounded"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-lg">
-            <h1 className="mb-5 text-5xl font-bold uppercase">
+            <h1 className="mb-5 text-5xl font-bold uppercase my-font">
               Tasty Desserts
             </h1>
-            <p className="mb-5 ">
-              Weather you crave sweet, savory, decadent or healthy, <br />
-              We have hundreds of rated dessert recipes to satisfy your taste
-              buds
+            <p className="mb-5 my-font">
+              Weather you crave sweet, savory, decadent or healthy, We have
+              hundreds of rated dessert recipes to satisfy your taste buds
             </p>
             <Link to="/register" className="btn btn-primary">
               Get Started

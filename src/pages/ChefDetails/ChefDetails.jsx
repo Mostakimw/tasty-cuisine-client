@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
 const ChefDetails = () => {
   const details = useLoaderData();
+  const [isFavorite1Disabled, setIsFavorite1Disabled] = useState(false);
+  const [isFavorite2Disabled, setIsFavorite2Disabled] = useState(false);
+  const [isFavorite3Disabled, setIsFavorite3Disabled] = useState(false);
+  const handlerDisabled1 = () => {
+    setIsFavorite1Disabled(true);
+  };
+  const handlerDisabled2 = () => {
+    setIsFavorite2Disabled(true);
+  };
+  const handlerDisabled3 = () => {
+    setIsFavorite3Disabled(true);
+  };
   const {
     _id,
     chef_name,
@@ -85,7 +97,11 @@ const ChefDetails = () => {
                   {recipes[0].rating}
                 </td>
                 <td>
-                  <button className="btn btn-outline btn-error hover:text-white">
+                  <button
+                    onClick={handlerDisabled1}
+                    disabled={isFavorite1Disabled}
+                    className="btn btn-outline btn-error hover:text-white"
+                  >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>
@@ -114,7 +130,11 @@ const ChefDetails = () => {
                   {recipes[1].rating}
                 </td>
                 <td>
-                  <button className="btn btn-outline btn-error hover:text-white">
+                  <button
+                    onClick={handlerDisabled2}
+                    disabled={isFavorite2Disabled}
+                    className="btn btn-outline btn-error hover:text-white"
+                  >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>
@@ -143,7 +163,11 @@ const ChefDetails = () => {
                   {recipes[2].rating}
                 </td>
                 <td>
-                  <button className="btn btn-outline btn-error hover:text-white">
+                  <button
+                    onClick={handlerDisabled3}
+                    disabled={isFavorite3Disabled}
+                    className="btn btn-outline btn-error hover:text-white"
+                  >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>

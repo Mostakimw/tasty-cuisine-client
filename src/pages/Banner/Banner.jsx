@@ -17,7 +17,7 @@ const Banner = () => {
       >
         <div className="relative flex h-full items-center justify-around">
           <div className="text-white">
-            <h2 className="text-6xl font-semibold">Tasty Cuisine</h2>
+            <h2 className="text-6xl font-semibold my-font">Tasty Cuisine</h2>
             <h4 className="my-10 text-xl font-semibold lg:w-[500px] px-3">
               Your ultimate destination for culinary inspiration. Join us and
               unleash your inner chef!
