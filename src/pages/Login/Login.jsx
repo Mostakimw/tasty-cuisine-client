@@ -46,6 +46,27 @@ const Login = () => {
                 </Link>
               </p>
             </label>
+
+            <div className="form-control">
+              <button className="flex items-center border-2 rounded-md p-2">
+                <img
+                  src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+                  alt=""
+                  height={"35px"}
+                  width={"35px"}
+                />
+                Continue with Google
+              </button>
+              <button className="flex items-center bg-gray-950 text-white mt-3  p-2 rounded-md">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/38/38401.png"
+                  alt=""
+                  height={"35px"}
+                  width={"35px"}
+                />
+                Continue with Github
+              </button>
+            </div>
           </div>
         </div>
       </div>
