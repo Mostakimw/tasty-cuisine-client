@@ -6,8 +6,8 @@ import Special from "../Special/Special";
 import Info from "../Info/Info";
 
 const Home = () => {
-  //   const chefs = useLoaderData();
-  //   console.log(chefs);
+  const chefs = useLoaderData();
+  console.log(chefs);
   return (
     <div>
       <Banner></Banner>
