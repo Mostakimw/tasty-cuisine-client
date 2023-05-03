@@ -1,6 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
+import {
+  FaCopyright,
+  FaFacebook,
+  FaGithub,
+  FaGoogle,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(UserContext);
@@ -106,15 +113,11 @@ const Login = () => {
               </button>
               <button
                 onClick={handleGithubLogin}
-                className="flex items-center bg-gray-950 text-white mt-3  p-2 rounded-md"
+                className="flex items-center bg-gray-950 text-white mt-3  py-2 px-4 rounded-md"
               >
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/38/38401.png"
-                  alt=""
-                  height={"35px"}
-                  width={"35px"}
-                />
-                Continue with Github
+                {" "}
+                <FaGithub className="mr-2 text-xl"></FaGithub> Continue with
+                Github
               </button>
             </div>
           </div>

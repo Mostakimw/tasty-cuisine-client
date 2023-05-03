@@ -2,11 +2,20 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { UserContext } from "../providers/AuthProvider";
+import {
+  FaCopyright,
+  FaFacebook,
+  FaGithub,
+  FaGoogle,
+  FaTwitter,
+  FaUserAstronaut,
+} from "react-icons/fa";
 
 const Header = () => {
   const { user, logoutUser } = useContext(UserContext);
   const [loggedUser, setLoggedUser] = useState("");
   const [error, setError] = useState("");
+  console.log(user?.displayName);
 
   const logoutHandle = () => {
     logoutUser()
@@ -86,18 +95,20 @@ const Header = () => {
           </ul>
           <div>
             {user?.email &&
-              (user?.photoUrl ? (
+              (user?.photoURL ? (
                 <img
-                  src={user.photoUrl}
-                  className="w-9 h-9 rounded-[50%] inline-block mr-3"
+                  title={user?.displayName}
+                  src={user.photoURL}
+                  className="link w-9 h-9 rounded-[50%] inline-block mr-3"
                   alt=""
                 />
               ) : (
                 <p
+                  title={user?.displayName}
                   className="
               inline mr-3"
                 >
-                  null
+                  <FaUserAstronaut className="link text-xl inline-block" />
                 </p>
               ))}
 

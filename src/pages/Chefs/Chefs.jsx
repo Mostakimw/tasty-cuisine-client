@@ -8,7 +8,7 @@ const Chefs = ({ chefs }) => {
       <p className="mtext-secondary my-3">
         Meet the talented chefs behind the delicious recipes on our website
       </p>
-      <div className="lg:grid grid-cols-12 gap-5 mt-10 px-3">
+      <div className="lg:grid grid-cols-12 gap-5 mt-10 px-3 ">
         {chefs.map((chef) => (
           <SingleChef key={chef._id} chef={chef}></SingleChef>
         ))}

@@ -28,13 +28,15 @@ const ChefDetails = () => {
   } = details;
   return (
     <div className="mt-10">
-      <h1 className="mtext-primary text-center text-gray-800">
+      <h1 className="mtext-primary text-center text-gray-800 px-2">
         A Taste of <span className="text-[#c84c30]">{chef_name}</span>{" "}
         Expertise: Chef Profile
       </h1>
       <div className="hero mt-12">
-        <div className="hero-content flex-col lg:flex-row space-x-6">
-          <img src={chef_picture} className="max-w-md rounded-lg shadow-2xl" />
+        <div className="hero-content flex-col lg:flex-row space-x-6 ">
+          <div className="max-w-md mb-8">
+            <img src={chef_picture} className="w-full rounded-lg shadow-2xl " />
+          </div>
           <div>
             <p className="py-3 text-[#757575] max-w-sm">
               <span className="font-bold text-gray-800">Description/Bio: </span>
@@ -61,7 +63,7 @@ const ChefDetails = () => {
         <h1 className="text-3xl text-gray-800 font-bold text-center my-8">
           Recipes Details
         </h1>
-        <div className="overflow-x-auto w-[1250px] mx-auto">
+        <div className="overflow-x-auto lg:w-[1250px] mx-auto">
           <table className="table table-zebra w-full">
             {/* head */}
             <thead>
@@ -88,7 +90,7 @@ const ChefDetails = () => {
                     <li>{recipes[0]?.ingredients[4]}</li>
                   </ul>
                 </td>
-                <td className="max-w-xs">
+                <td className="max-w-xs overflow-x-auto">
                   <p className="w-full whitespace-pre-line">
                     {recipes[0].method}
                   </p>
