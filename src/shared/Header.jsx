@@ -2,14 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { UserContext } from "../providers/AuthProvider";
-import {
-  FaCopyright,
-  FaFacebook,
-  FaGithub,
-  FaGoogle,
-  FaTwitter,
-  FaUserAstronaut,
-} from "react-icons/fa";
+import { FaUserAstronaut } from "react-icons/fa";
 
 const Header = () => {
   const { user, logoutUser } = useContext(UserContext);
@@ -99,25 +92,30 @@ const Header = () => {
                 <img
                   title={user?.displayName}
                   src={user.photoURL}
-                  className="link w-9 h-9 rounded-[50%] inline-block mr-3"
+                  className="link w-9 h-9 rounded-[50%] inline-block mr-4"
                   alt=""
                 />
               ) : (
                 <p
                   title={user?.displayName}
                   className="
-              inline mr-3"
+              inline mr-4"
                 >
-                  <FaUserAstronaut className="link text-xl inline-block" />
+                  <FaUserAstronaut className="link text-2xl inline-block text-[#1c5c7c]" />
                 </p>
               ))}
 
             {user?.email ? (
-              <button onClick={logoutHandle}>Logout</button>
+              <button
+                onClick={logoutHandle}
+                className="inline-flex items-center bg-[#c84c30] hover:bg-[#cd320f] border-0 py-2 px-3 rounded-md mt-2 text-white"
+              >
+                Logout
+              </button>
             ) : (
               <Link
                 to="/login"
-                className="inline-flex items-center bg-[#c84c30] border-0 py-2 px-3 rounded-md mt-2 text-white"
+                className="inline-flex items-center bg-[#c84c30] hover:bg-[#cd320f] border-0 py-2 px-3 rounded-md mt-2 text-white"
               >
                 Login
               </Link>

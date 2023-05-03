@@ -1,13 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
-import {
-  FaCopyright,
-  FaFacebook,
-  FaGithub,
-  FaGoogle,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(UserContext);
