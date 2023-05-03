@@ -8,7 +8,7 @@ const Header = () => {
   const { user, logoutUser } = useContext(UserContext);
   const [loggedUser, setLoggedUser] = useState("");
   const [error, setError] = useState("");
-  console.log(user?.displayName);
+  // console.log(user);
 
   const logoutHandle = () => {
     logoutUser()
@@ -89,12 +89,13 @@ const Header = () => {
           <div>
             {user?.email &&
               (user?.photoURL ? (
-                <img
-                  title={user?.displayName}
-                  src={user.photoURL}
-                  className="link w-9 h-9 rounded-[50%] inline-block mr-4"
-                  alt=""
-                />
+                // <img
+                //   title={user?.displayName}
+                //   src={user.photoURL}
+                //   className="link w-9 h-9 rounded-[50%] inline-block mr-4"
+                //   alt=""
+                // />
+                <h1>{user?.displayName}</h1>
               ) : (
                 <p
                   title={user?.displayName}

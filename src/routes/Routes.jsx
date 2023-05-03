@@ -1,14 +1,22 @@
+import React, { lazy, Suspense } from "react";
+
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import Home from "../pages/Home/Home";
+// import Home from "../pages/Home/Home";
 import Blog from "../pages/Blog/Blog";
 import Info from "../pages/Info/Info";
 import Special from "../pages/Special/Special";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import ChefDetails from "../pages/ChefDetails/ChefDetails";
+// import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import PrivateRoute from "./PrivateRoute";
+import Loading from "../pages/Loading/Loading";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 // import Error from "../pages/Error/Error";
+
+const LazyHome = lazy(() => import("../pages/Home/Home"));
+
+const LazyChefDetails = lazy(() => import("../pages/ChefDetails/ChefDetails"));
 
 const router = createBrowserRouter([
   {
@@ -18,7 +26,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: (
+          <Suspense fallback={<Loading />}>
+            <LazyHome></LazyHome>
+          </Suspense>
+        ),
         loader: () =>
           fetch(`https://taste-cuisine-server-mostakimw.vercel.app/chefs`),
       },
@@ -45,9 +57,11 @@ const router = createBrowserRouter([
       {
         path: "chefs/:id",
         element: (
-          <PrivateRoute>
-            <ChefDetails></ChefDetails>
-          </PrivateRoute>
+          <Suspense fallback={<Loading />}>
+            <PrivateRoute>
+              <LazyChefDetails></LazyChefDetails>
+            </PrivateRoute>
+          </Suspense>
         ),
         loader: ({ params }) =>
           fetch(

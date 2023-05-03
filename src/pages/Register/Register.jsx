@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { registerUser } = useContext(UserContext);
   const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,17 +13,17 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  const { registerUser } = useContext(UserContext);
+  console.log(email, name, photoUrl, password);
 
-  const handleRegister = () => {
-    if (!name || !email || !password || !photoUrl) {
-      setError("Please fill in all fields");
-      return;
-    }
+  const handleRegister = (event) => {
+    event.preventDefault();
     // password validation check
-
     if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
       setError("password not valid need 8 char ");
+      return;
+    }
+    if (!name || !email || !password || !photoUrl) {
+      setError("Please fill in all fields");
       return;
     }
 
@@ -30,10 +32,21 @@ const Register = () => {
         console.log(user.user);
         setUser(true);
         setSuccess("Registration Successful");
+        updateUserProfile(user.user, name, photoUrl);
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const updateUserProfile = (user, name, photoUrl) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    });
+    then().catch((err) => {
+      console.log("error");
+    });
   };
 
   return (
@@ -43,7 +56,7 @@ const Register = () => {
           <div className="text-center">
             <h1 className="text-5xl font-bold">Register Please</h1>
           </div>
-          <div className="card w-full lg:w-[800px] max-w-sm shadow-2xl bg-base-100">
+          <form className="card w-full lg:w-[800px] max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
               <div className="form-control pt-5">
                 {user ? (
@@ -56,6 +69,7 @@ const Register = () => {
                 </label>
                 <input
                   onChange={(e) => setName(e.target.value)}
+                  value={name}
                   type="text"
                   name="name"
                   placeholder="name"
@@ -92,6 +106,7 @@ const Register = () => {
                 </label>
                 <input
                   onChange={(e) => setPhotoUrl(e.target.value)}
+                  value={photoUrl}
                   type="text"
                   name="photo-url"
                   placeholder="photo-url"
@@ -114,7 +129,7 @@ const Register = () => {
                 </p>
               </label>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

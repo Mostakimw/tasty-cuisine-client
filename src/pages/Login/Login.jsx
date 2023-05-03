@@ -4,10 +4,12 @@ import { UserContext } from "../../providers/AuthProvider";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { loginUser, googleLogin, githubLogin } = useContext(UserContext);
-  const [user, setUser] = useState(false);
+  const { user, loginUser, googleLogin, githubLogin, updateUserProfile } =
+    useContext(UserContext);
+  // const [currentUser, setCurrentUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log(user);
 
   const [error, setError] = useState("");
 
@@ -18,9 +20,10 @@ const Login = () => {
 
   const loginHandle = () => {
     loginUser(email, password)
-      .then((user) => {
-        console.log(user.user);
-        navigate(from);
+      .then((userCredential) => {
+        // setUser(userCredential.user);
+        console.log(userCredential);
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         setError("Email Or Password doesn't match");
@@ -29,16 +32,21 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((user) => {
-        console.log(user);
+        setUser(user);
       })
       .catch((err) => console.log(err));
   };
 
   const handleGithubLogin = () => {
     githubLogin()
-      .then((user) => console.log(user))
+      .then((user) => setUser(user))
       .catch((err) => console.log(err));
   };
+
+  //update profile
+
+  // const currentUserPro = auth.currentUser;
+  // console.log(currentUserPro);
 
   return (
     <div className="hero bg-base-100">
@@ -49,7 +57,7 @@ const Login = () => {
         <div className="card w-full lg:w-[800px] max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <div className="form-control pt-5">
-              <p className="text-error mb-2">{user || error}</p>
+              <p className="text-error mb-2">{error}</p>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>

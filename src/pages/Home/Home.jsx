@@ -1,17 +1,22 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Chefs from "../Chefs/Chefs";
 import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import Special from "../Special/Special";
 import Info from "../Info/Info";
+import Loading from "../Loading/Loading";
+
+const LazyChefs = lazy(() => import("../Chefs/Chefs"));
 
 const Home = () => {
   const chefs = useLoaderData();
-  console.log(chefs);
+  // console.log(chefs);
   return (
     <div>
       <Banner></Banner>
-      <Chefs chefs={chefs}></Chefs>
+      <Suspense fallback={<Loading />}>
+        <LazyChefs chefs={chefs}></LazyChefs>
+      </Suspense>
       <Special></Special>
       <Info></Info>
     </div>
