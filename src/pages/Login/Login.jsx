@@ -1,23 +1,43 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, googleLogin, githubLogin } = useContext(UserContext);
   const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+
+  const from = location.state?.from?.pathname || "/";
+
   const loginHandle = () => {
     loginUser(email, password)
       .then((user) => {
         console.log(user.user);
+        navigate(from);
       })
       .catch((err) => {
         setError("Email Or Password doesn't match");
       });
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((user) => console.log(user))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -73,7 +93,10 @@ const Login = () => {
             </label>
 
             <div className="form-control">
-              <button className="flex items-center border-2 rounded-md p-2">
+              <button
+                onClick={handleGoogleLogin}
+                className="flex items-center border-2 rounded-md p-2"
+              >
                 <img
                   src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
                   alt=""
@@ -82,7 +105,10 @@ const Login = () => {
                 />
                 Continue with Google
               </button>
-              <button className="flex items-center bg-gray-950 text-white mt-3  p-2 rounded-md">
+              <button
+                onClick={handleGithubLogin}
+                className="flex items-center bg-gray-950 text-white mt-3  p-2 rounded-md"
+              >
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/38/38401.png"
                   alt=""
