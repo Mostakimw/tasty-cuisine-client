@@ -34,7 +34,7 @@ const ChefDetails = () => {
       </h1>
       <div className="hero mt-12">
         <div className="hero-content flex-col lg:flex-row space-x-6">
-          <img src={chef_picture} className="max-w-sm rounded-lg shadow-2xl" />
+          <img src={chef_picture} className="max-w-md rounded-lg shadow-2xl" />
           <div>
             <p className="py-3 text-[#757575] max-w-sm">
               <span className="font-bold text-gray-800">Description/Bio: </span>

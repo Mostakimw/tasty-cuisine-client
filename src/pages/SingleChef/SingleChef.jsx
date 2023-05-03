@@ -10,8 +10,8 @@ const SingleChef = ({ chef }) => {
       <div className="border-2 rounded-md col-span-4 mb-6 ">
         <div className=" text-left p-4">
           <img
-            src="https://www.telegraph.co.uk/content/dam/food-and-drink/2018/10/09/Sat-Bains_trans_NvBQzQNjv4Bq3XmyF3YIL3K1caQxZsZv2R0QqM06sRPpbYbf7C3kqhM.png?imwidth=680"
-            className="max-w-sm rounded-lg shadow-2xl w-full"
+            src={chef_picture}
+            className="max-w-sm rounded-lg shadow-2xl w-full h-64"
           />
           <div>
             <h1 className="text-4xl font-bold my-4">{chef_name}</h1>
