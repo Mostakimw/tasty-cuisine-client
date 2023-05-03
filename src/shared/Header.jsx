@@ -5,11 +5,13 @@ import { UserContext } from "../providers/AuthProvider";
 
 const Header = () => {
   const { user, logoutUser } = useContext(UserContext);
+  const [loggedUser, setLoggedUser] = useState("");
+  const [error, setError] = useState("");
 
   const logoutHandle = () => {
     logoutUser()
       .then()
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err));
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -83,6 +85,22 @@ const Header = () => {
             </li>
           </ul>
           <div>
+            {user?.email &&
+              (user?.photoUrl ? (
+                <img
+                  src={user.photoUrl}
+                  className="w-9 h-9 rounded-[50%] inline-block mr-3"
+                  alt=""
+                />
+              ) : (
+                <p
+                  className="
+              inline mr-3"
+                >
+                  null
+                </p>
+              ))}
+
             {user?.email ? (
               <button onClick={logoutHandle}>Logout</button>
             ) : (
