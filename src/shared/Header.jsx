@@ -23,7 +23,7 @@ const Header = () => {
       <nav className="flex items-center justify-between flex-wrap ">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link to="/">
-            <span className="hover:cursor-pointer ml-2 text-xl font-bold tracking-wide text-gray-800">
+            <span className="hover:cursor-pointer ml-2 text-2xl font-bold my-font tracking-wide text-gray-800">
               Tasty Cuisine
             </span>
           </Link>

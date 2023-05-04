@@ -12,7 +12,7 @@ import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../pages/Loading/Loading";
 import ChefDetails from "../pages/ChefDetails/ChefDetails";
-// import Error from "../pages/Error/Error";
+import Error from "../pages/Error/Error";
 
 const LazyHome = lazy(() => import("../pages/Home/Home"));
 
@@ -69,6 +69,11 @@ const router = createBrowserRouter([
           ),
       },
     ],
+  },
+
+  {
+    path: "*",
+    errorElement: <Error></Error>,
   },
 ]);
 

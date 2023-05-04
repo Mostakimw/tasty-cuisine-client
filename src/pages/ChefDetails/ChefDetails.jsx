@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
+import Rating from "react-rating";
+import { FaHeart, FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 
 const ChefDetails = () => {
@@ -103,8 +104,18 @@ const ChefDetails = () => {
                     {recipes[0].method}
                   </p>
                 </td>
-                <td className="text-[#c84c30] font-semibold">
-                  {recipes[0].rating}
+                <td className=" font-semibold">
+                  <Rating
+                    placeholderRating={recipes[0].rating}
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={
+                      <FaStar className="text-[#c84c30]"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                  />
+                  <span className="text-[#c84c30] ml-2">
+                    {recipes[0].rating}
+                  </span>
                 </td>
                 <td>
                   <button
@@ -137,8 +148,18 @@ const ChefDetails = () => {
                     {recipes[1].method}
                   </p>
                 </td>
-                <td className="text-[#c84c30] font-semibold">
-                  {recipes[1].rating}
+                <td className=" font-semibold">
+                  <Rating
+                    placeholderRating={recipes[1].rating}
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={
+                      <FaStar className="text-[#c84c30]"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                  />
+                  <span className="text-[#c84c30] ml-2">
+                    {recipes[1].rating}
+                  </span>
                 </td>
                 <td>
                   <button
@@ -171,8 +192,18 @@ const ChefDetails = () => {
                     {recipes[2].method}
                   </p>
                 </td>
-                <td className="text-[#c84c30] font-semibold">
-                  {recipes[2].rating}
+                <td className=" font-semibold">
+                  <Rating
+                    placeholderRating={recipes[2].rating}
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={
+                      <FaStar className="text-[#c84c30]"></FaStar>
+                    }
+                    fullSymbol={<FaStar></FaStar>}
+                  />
+                  <span className="text-[#c84c30] ml-2">
+                    {recipes[2].rating}
+                  </span>
                 </td>
                 <td>
                   <button
