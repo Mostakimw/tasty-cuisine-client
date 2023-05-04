@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { registerUser } = useContext(UserContext);
+  const { registerUser, logoutUser } = useContext(UserContext);
   const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,10 +14,14 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  console.log(email, name, photoUrl, password);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleRegister = (event) => {
     event.preventDefault();
+
     // password validation check
     if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
       setError("password not valid need 8 char ");
@@ -27,14 +32,21 @@ const Register = () => {
       return;
     }
 
+    const registerSuccess = () => {
+      return Swal.fire("Good job!", "You clicked the button!", "success");
+    };
+
     registerUser(email, password)
-      .then((user) => {
-        console.log(user.user);
+      .then((result) => {
+        console.log(result.user);
         setUser(true);
+        registerSuccess();
         setSuccess("Registration Successful");
-        updateUserProfile(user.user, name, photoUrl);
+        updateUserProfile(result.user, name, photoUrl);
+        navigate("/");
       })
       .catch((err) => {
+        setError(err.message);
         console.log(err);
       });
   };
@@ -42,10 +54,11 @@ const Register = () => {
   const updateUserProfile = (user, name, photoUrl) => {
     updateProfile(user, {
       displayName: name,
-      photoURL: photoUrl,
+      photoURL:
+        "https://thumbs.dreamstime.com/b/handsome-man-black-suit-white-shirt-posing-studio-attractive-guy-fashion-hairstyle-confident-man-short-beard-125019349.jpg",
     });
     then().catch((err) => {
-      console.log("error");
+      setError(err.message);
     });
   };
 

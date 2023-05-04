@@ -22,9 +22,11 @@ const Header = () => {
     <div className="lg:w-[1280px] mx-auto my-3 px-3">
       <nav className="flex items-center justify-between flex-wrap ">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="ml-2 text-xl font-bold tracking-wide text-gray-800">
-            Tasty Cuisine
-          </span>
+          <Link to="/">
+            <span className="hover:cursor-pointer ml-2 text-xl font-bold tracking-wide text-gray-800">
+              Tasty Cuisine
+            </span>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button
@@ -87,16 +89,17 @@ const Header = () => {
             </li>
           </ul>
           <div>
-            {user?.email &&
+            {user?.displayName &&
               (user?.photoURL ? (
-                // <img
-                //   title={user?.displayName}
-                //   src={user.photoURL}
-                //   className="link w-9 h-9 rounded-[50%] inline-block mr-4"
-                //   alt=""
-                // />
-                <h1>{user?.displayName}</h1>
+                <img
+                  title={user?.displayName}
+                  src={user.photoURL}
+                  className="link w-9 h-9 rounded-[50%] inline-block mr-4"
+                  alt=""
+                  referrerPolicy="no-referrer"
+                />
               ) : (
+                // <h1>{user?.displayName}</h1>
                 <p
                   title={user?.displayName}
                   className="
@@ -106,7 +109,7 @@ const Header = () => {
                 </p>
               ))}
 
-            {user?.email ? (
+            {user?.displayName ? (
               <button
                 onClick={logoutHandle}
                 className="inline-flex items-center bg-[#c84c30] hover:bg-[#cd320f] border-0 py-2 px-3 rounded-md mt-2 text-white"

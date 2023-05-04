@@ -4,12 +4,9 @@ import { UserContext } from "../../providers/AuthProvider";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { user, loginUser, googleLogin, githubLogin, updateUserProfile } =
-    useContext(UserContext);
-  // const [currentUser, setCurrentUser] = useState(false);
+  const { user, loginUser, googleLogin, githubLogin } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(user);
 
   const [error, setError] = useState("");
 
@@ -21,8 +18,6 @@ const Login = () => {
   const loginHandle = () => {
     loginUser(email, password)
       .then((userCredential) => {
-        // setUser(userCredential.user);
-        console.log(userCredential);
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -31,22 +26,17 @@ const Login = () => {
   };
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((user) => {
-        setUser(user);
+      .then((userCredential) => {
+        navigate(from, { replace: true });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(""));
   };
 
   const handleGithubLogin = () => {
     githubLogin()
-      .then((user) => setUser(user))
-      .catch((err) => console.log(err));
+      .then(() => navigate(from, { replace: true }))
+      .catch((err) => setError(""));
   };
-
-  //update profile
-
-  // const currentUserPro = auth.currentUser;
-  // console.log(currentUserPro);
 
   return (
     <div className="hero bg-base-100">
