@@ -1,4 +1,4 @@
-** TASTY CUISINE WEBSITE **
+## ** TASTY CUISINE WEBSITE **
 
 - This website showcases the profiles of different chefs and their specialties. Users can explore each chef's background, experience, and signature dishes.
 - The website was built using React and Firebase.
