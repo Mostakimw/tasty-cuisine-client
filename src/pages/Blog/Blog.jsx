@@ -9,10 +9,10 @@ const Blog = () => {
     <div className="my-8">
       <Pdf targetRef={ref} filename="blog.pdf">
         {({ toPdf }) => (
-          <div className="text-center">
+          <div className="text-center mb-3 ">
             <button className="btn btn-outline" onClick={toPdf}>
-              <FaDownload className="mr-2" />
-              Download This Blog
+              <FaDownload className="mr-2 " />
+              <span className="text-sm">Download This Blog</span>
             </button>
           </div>
         )}

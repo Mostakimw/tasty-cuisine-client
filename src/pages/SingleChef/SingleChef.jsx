@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const SingleChef = ({ chef }) => {
   const { _id, chef_name, chef_picture, likes, num_of_recipes, years_of_exp } =
@@ -8,10 +9,12 @@ const SingleChef = ({ chef }) => {
     <>
       <div className="border-2 rounded-md col-span-4 mb-6 ">
         <div className=" text-left p-4">
-          <img
-            src={chef_picture}
-            className="max-w-sm rounded-lg shadow-2xl w-full"
-          />
+          <LazyLoad threshold={0.95}>
+            <img
+              src={chef_picture}
+              className="max-w-sm rounded-lg shadow-2xl w-full"
+            />
+          </LazyLoad>
           <div>
             <h1 className="text-4xl font-bold my-font mt-6 mb-3">
               {chef_name}
