@@ -23,8 +23,8 @@ const Special = () => {
               Weather you crave sweet, savory, decadent or healthy, We have
               hundreds of rated dessert recipes to satisfy your taste buds
             </p>
-            <Link to="/register" className="btn btn-primary">
-              Get Started
+            <Link to="/register" className="btn btn-primary px-12">
+              Join Us
             </Link>
           </div>
         </div>

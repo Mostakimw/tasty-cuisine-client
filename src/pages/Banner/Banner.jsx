@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div
-      className="relative overflow-hidden bg-cover bg-no-repeat text-center mt-5"
+      className="relative overflow-hidden bg-cover bg-no-repeat text-center lg:mt-12"
       style={{
         backgroundImage:
-          'url("https://img.freepik.com/free-photo/top-view-burger-fries-with-sauces-copy-space_23-2148784450.jpg?w=1060&t=st=1683013983~exp=1683014583~hmac=804959901f60d16849f52a10439342d48a61d09a44dbf0c19598f1c9da370840")',
+          'url("https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
         height: `calc(100vh - 100px)`,
       }}
     >
@@ -15,12 +15,15 @@ const Banner = () => {
         className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
       >
-        <div className="relative flex h-full items-center justify-around">
+        <div className="relative flex h-full items-center justify-center">
           <div className="text-white">
             <h2 className="text-6xl font-semibold my-font">Tasty Cuisine</h2>
-            <h4 className="my-10 text-xl font-semibold lg:w-[500px] px-3">
-              Your ultimate destination for culinary inspiration. Join us and
-              unleash your inner chef!
+            <h4 className="my-10 leading-8 lg:w-6/12 mx-auto px-3 text-gray-200">
+              Experience culinary excellence with Tasty Cuisine - where the
+              passion for food meets the art of cooking. Meet our talented chefs
+              and discover their culinary masterpieces. Your ultimate
+              destination for culinary inspiration. Join us and unleash your
+              inner chef!
             </h4>
             <Link
               to="/register"
