@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="bg-neutral mt-12">
+    <div className="bg-neutral mt-20">
       <footer className="footer p-10  text-neutral-content lg:w-[1300px] mx-auto">
         <div>
           <span className="footer-title">Services</span>

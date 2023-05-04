@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 const ChefDetails = () => {
   const details = useLoaderData();
   const [isFavorite1Disabled, setIsFavorite1Disabled] = useState(false);
   const [isFavorite2Disabled, setIsFavorite2Disabled] = useState(false);
   const [isFavorite3Disabled, setIsFavorite3Disabled] = useState(false);
-  const handlerDisabled1 = () => {
+
+  const toastFav = () => {
+    toast("Added To Favorite");
+  };
+  const handleFavorite1 = () => {
     setIsFavorite1Disabled(true);
+    toastFav();
   };
-  const handlerDisabled2 = () => {
+  const handleFavorite2 = () => {
     setIsFavorite2Disabled(true);
+    toastFav();
   };
-  const handlerDisabled3 = () => {
+  const handleFavorite3 = () => {
     setIsFavorite3Disabled(true);
+    toastFav();
   };
   const {
     _id,
@@ -100,13 +108,14 @@ const ChefDetails = () => {
                 </td>
                 <td>
                   <button
-                    onClick={handlerDisabled1}
+                    onClick={handleFavorite1}
                     disabled={isFavorite1Disabled}
                     className="btn btn-outline btn-error hover:text-white"
                   >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>
+                  <Toaster />
                 </td>
               </tr>
               {/* row 2 */}
@@ -133,13 +142,14 @@ const ChefDetails = () => {
                 </td>
                 <td>
                   <button
-                    onClick={handlerDisabled2}
+                    onClick={handleFavorite2}
                     disabled={isFavorite2Disabled}
                     className="btn btn-outline btn-error hover:text-white"
                   >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>
+                  <Toaster />
                 </td>
               </tr>
               {/* row 3 */}
@@ -166,13 +176,14 @@ const ChefDetails = () => {
                 </td>
                 <td>
                   <button
-                    onClick={handlerDisabled3}
+                    onClick={handleFavorite3}
                     disabled={isFavorite3Disabled}
                     className="btn btn-outline btn-error hover:text-white"
                   >
                     <FaHeart className="mr-2 inline-block text-[#c84c30] text-xl " />
                     <span>Add to Favourite</span>
                   </button>
+                  <Toaster />
                 </td>
               </tr>
             </tbody>

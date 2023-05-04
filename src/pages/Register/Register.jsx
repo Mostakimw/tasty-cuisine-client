@@ -14,11 +14,6 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || "/";
-
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -33,7 +28,7 @@ const Register = () => {
     }
 
     const registerSuccess = () => {
-      return Swal.fire("Good job!", "You clicked the button!", "success");
+      return Swal.fire("Registration Successful!", "Explore Now!", "success");
     };
 
     registerUser(email, password)
@@ -43,22 +38,19 @@ const Register = () => {
         registerSuccess();
         setSuccess("Registration Successful");
         updateUserProfile(result.user, name, photoUrl);
-        navigate("/");
       })
       .catch((err) => {
-        setError(err.message);
-        console.log(err);
+        setError("");
       });
   };
 
   const updateUserProfile = (user, name, photoUrl) => {
     updateProfile(user, {
       displayName: name,
-      photoURL:
-        "https://thumbs.dreamstime.com/b/handsome-man-black-suit-white-shirt-posing-studio-attractive-guy-fashion-hairstyle-confident-man-short-beard-125019349.jpg",
+      photoURL: photoUrl,
     });
-    then().catch((err) => {
-      setError(err.message);
+    then(() => {}).catch((err) => {
+      setError("");
     });
   };
 
