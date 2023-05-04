@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div className="flex flex-col justify-center min-h-screen items-center bg-[#9873FF1A]">
       <img
-        className="w-6/12 rounded-lg"
+        className="w-full lg:w-6/12 px-6 rounded-lg mb-6"
         src="https://i.ibb.co/g327Q8K/Screenshot-2.png"
         alt=""
       />
