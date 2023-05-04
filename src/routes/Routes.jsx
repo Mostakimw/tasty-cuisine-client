@@ -2,16 +2,13 @@ import React, { lazy, Suspense } from "react";
 
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-// import Home from "../pages/Home/Home";
 import Blog from "../pages/Blog/Blog";
 import Info from "../pages/Info/Info";
 import Special from "../pages/Special/Special";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-// import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../pages/Loading/Loading";
-import ChefDetails from "../pages/ChefDetails/ChefDetails";
 import Error from "../pages/Error/Error";
 
 const LazyHome = lazy(() => import("../pages/Home/Home"));
@@ -22,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    // errorElement: <Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -69,11 +66,6 @@ const router = createBrowserRouter([
           ),
       },
     ],
-  },
-
-  {
-    path: "*",
-    errorElement: <Error></Error>,
   },
 ]);
 

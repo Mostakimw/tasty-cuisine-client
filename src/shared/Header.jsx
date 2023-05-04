@@ -1,14 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
 import { UserContext } from "../providers/AuthProvider";
 import { FaUserAstronaut } from "react-icons/fa";
 
 const Header = () => {
   const { user, logoutUser } = useContext(UserContext);
-  const [loggedUser, setLoggedUser] = useState("");
-  const [error, setError] = useState("");
-  // console.log(user);
 
   const logoutHandle = () => {
     logoutUser()

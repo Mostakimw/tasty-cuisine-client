@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { registerUser, logoutUser } = useContext(UserContext);
+  const { registerUser } = useContext(UserContext);
   const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +33,6 @@ const Register = () => {
 
     registerUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(true);
         registerSuccess();
         setSuccess("Registration Successful");

@@ -10,10 +10,12 @@ const SingleChef = ({ chef }) => {
         <div className=" text-left p-4">
           <img
             src={chef_picture}
-            className="max-w-sm rounded-lg shadow-2xl w-full h-64"
+            className="max-w-sm rounded-lg shadow-2xl w-full"
           />
           <div>
-            <h1 className="text-4xl font-bold my-4">{chef_name}</h1>
+            <h1 className="text-4xl font-bold my-font mt-6 mb-3">
+              {chef_name}
+            </h1>
             <p className="mtext-secondary my-2">
               Years of Experience: {years_of_exp}
             </p>

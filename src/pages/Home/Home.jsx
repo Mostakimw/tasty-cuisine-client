@@ -1,5 +1,4 @@
 import React, { Suspense, lazy } from "react";
-import Chefs from "../Chefs/Chefs";
 import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import Special from "../Special/Special";
@@ -10,7 +9,6 @@ const LazyChefs = lazy(() => import("../Chefs/Chefs"));
 
 const Home = () => {
   const chefs = useLoaderData();
-  // console.log(chefs);
   return (
     <div>
       <Banner></Banner>

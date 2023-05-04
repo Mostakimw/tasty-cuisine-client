@@ -1,6 +1,5 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
-// import Reac from "react-to-pdf";
 import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
@@ -13,7 +12,7 @@ const Blog = () => {
           <div className="text-center">
             <button className="btn btn-outline" onClick={toPdf}>
               <FaDownload className="mr-2" />
-              Generate Pdf
+              Download This Blog
             </button>
           </div>
         )}
